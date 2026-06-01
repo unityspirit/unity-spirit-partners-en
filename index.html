@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="YOUR COMPANY — premium website template by Global Plus." />
+  <title>YOUR COMPANY — Website Template</title>
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- CINEMATIC CANVAS BACKGROUND -->
+  <canvas id="gl-canvas"></canvas>
+  <!-- PARTICLE OVERLAY -->
+  <canvas id="particle-canvas"></canvas>
+  <!-- GRAIN OVERLAY -->
+  <div class="grain-overlay"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" data-scroll="0">
+        <img src="images/logo.png" alt="Logo" class="logo-img" />
+        <span class="logo-text">YOUR <span class="logo-accent">COMPANY</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" data-scroll="1" class="nav-link">Services</a></li>
+        <li><a href="#" data-scroll="2" class="nav-link">Portfolio</a></li>
+        <li><a href="#" data-scroll="3" class="nav-link">Process</a></li>
+        <li><a href="#" data-scroll="4" class="nav-link">About</a></li>
+        <li><a href="#" data-scroll="5" class="nav-link nav-cta">Contact</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="nav-scrim" id="nav-scrim" hidden></div>
+  <div class="nav-drawer" id="nav-drawer" hidden>
+    <button class="drawer-close" id="drawer-close" aria-label="Close">✕</button>
+    <ul class="drawer-links" id="drawer-links">
+      <li><a href="#" data-scroll="1" class="drawer-link">Services</a></li>
+      <li><a href="#" data-scroll="2" class="drawer-link">Portfolio</a></li>
+      <li><a href="#" data-scroll="3" class="drawer-link">Process</a></li>
+      <li><a href="#" data-scroll="4" class="drawer-link">About</a></li>
+      <li><a href="#" data-scroll="5" class="drawer-link">Contact</a></li>
+    </ul>
+    <div class="drawer-contacts">
+    </div>
+  </div>
+
+  <!-- MAIN SCROLL CONTAINER -->
+  <div id="ui-layer">
+    <div class="stage">
+
+      <!-- SECTION 0: HERO -->
+      <section class="page is-active" data-index="0" id="hero">
+        <div class="page-inner hero-inner">
+          <img src="images/logo.png" alt="Logo" class="hero-logo reveal-3d">
+          <div class="hero-badge reveal-3d">YOUR BRAND • YOUR NICHE • YOUR DIRECTION</div>
+          <h1 class="hero-title reveal-3d">
+            YOUR BRAND<br><span class="gradient-text">NAME HERE</span>
+          </h1>
+          <p class="hero-subtitle reveal-3d">Write your slogan, tagline, or a compelling offer — anything you want your visitors to see first.</p>
+          <div class="hero-cta-group reveal-3d">
+            <a href="#" data-scroll="1" class="btn-primary">Make a Button</a>
+            <a href="#" data-scroll="5" class="btn-outline">Your Links</a>
+          </div>
+          <div class="hero-scroll-hint">
+            <div class="scroll-line"></div>
+            <span>scroll</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 1: SERVICES -->
+      <section class="page" data-index="1" id="services">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">What We Do</div>
+          <h2 class="section-title reveal-3d">Our<br><span class="gradient-text">Services</span></h2>
+          <p class="section-desc reveal-3d">Showcase your offerings to potential clients, just like in the examples below.</p>
+          <div class="services-grid reveal-3d">
+            <div class="service-card">
+              <div class="service-icon">📊</div>
+              <h3>Strategic Consulting</h3>
+              <p>Tailored strategies for sustainable growth. Market positioning, competitive analysis, and roadmap development.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">💰</div>
+              <h3>Investment Advisory</h3>
+              <p>Expert guidance on capital allocation, portfolio strategy, and investment opportunities.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🤝</div>
+              <h3>Business Development</h3>
+              <p>Identifying and nurturing strategic partnerships. Market expansion through meaningful connections.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">📈</div>
+              <h3>Market Analysis</h3>
+              <p>Data-driven insights into market trends, consumer behavior, and competitive landscape.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🔄</div>
+              <h3>M&A Advisory</h3>
+              <p>End-to-end mergers and acquisitions support. Due diligence, valuation, negotiation, and integration.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🛡️</div>
+              <h3>Risk Management</h3>
+              <p>Comprehensive risk assessment and mitigation. Protecting assets while pursuing aggressive growth.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: PORTFOLIO -->
+      <section class="page" data-index="2" id="portfolio">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">Portfolio</div>
+          <h2 class="section-title reveal-3d">Featured<br><span class="gradient-text">Projects</span></h2>
+          <p class="section-desc reveal-3d">Add what will impress everyone</p>
+          <div class="collections-grid reveal-3d">
+            <div class="collection-card card-large">
+              <div class="collection-overlay" style="background:linear-gradient(to top,rgba(6,4,10,0.92) 0%,rgba(6,4,10,0.4) 100%);">
+                <span class="collection-label">Acme Corp · Downtown Miami</span>
+                <h3>Project "Alpha"</h3>
+                <p>Strategic partnership that creates value and delivers results.</p>
+              </div>
+            </div>
+            <div class="collection-card card-medium">
+              <div class="collection-overlay" style="background:linear-gradient(to top,rgba(6,4,10,0.92) 0%,rgba(6,4,10,0.4) 100%);">
+                <span class="collection-label">Vanguard Inc · Waterfront</span>
+                <h3>The Meridian Loft</h3>
+                <p>Successful collaboration in business development and growth.</p>
+              </div>
+            </div>
+            <div class="collection-card card-medium">
+              <div class="collection-overlay" style="background:linear-gradient(to top,rgba(6,4,10,0.92) 0%,rgba(6,4,10,0.4) 100%);">
+                <span class="collection-label">Phoenix Corp · Business District</span>
+                <h3>The Beacon Complex</h3>
+                <p>Comprehensive solution for enterprise-level client needs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: PROCESS -->
+      <section class="page" data-index="3" id="process">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">Our Process</div>
+          <h2 class="section-title reveal-3d">Our<br><span class="gradient-text">Process</span></h2>
+          <p class="section-desc reveal-3d">Tell your clients how the collaboration process works, as shown below</p>
+          <div class="production-layout reveal-3d">
+            <div class="production-stats">
+              <div class="stat-card">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">years of expertise</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">200+</span>
+                <span class="stat-label">clients served</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">client retention</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">24/7 support</span>
+              </div>
+              <div class="production-steps">
+                <div class="prod-step"><span class="step-num">01</span><span class="step-text">Discovery & strategic alignment assessment</span></div>
+                <div class="prod-step"><span class="step-num">02</span><span class="step-text">Market research & opportunity mapping</span></div>
+                <div class="prod-step"><span class="step-num">03</span><span class="step-text">Partnership structuring & negotiation</span></div>
+                <div class="prod-step"><span class="step-num">04</span><span class="step-text">Implementation & integration support</span></div>
+                <div class="prod-step"><span class="step-num">05</span><span class="step-text">Performance monitoring & optimization</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: ABOUT -->
+      <section class="page" data-index="4" id="about">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">About Us</div>
+          <h2 class="section-title reveal-3d">About<br><span class="gradient-text">Us</span></h2>
+          <p class="section-desc reveal-3d">Share your achievements and client testimonials</p>
+          <div class="about-grid reveal-3d">
+            <div class="about-card">
+              <div class="about-icon">🌍</div>
+              <h3>Global Network</h3>
+              <p>Extensive international network spanning 15+ countries with local expertise and global vision.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">💎</div>
+              <h3>Proven Excellence</h3>
+              <p>Track record of delivering measurable results backed by data-driven analytics.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">🤝</div>
+              <h3>Client-First Approach</h3>
+              <p>Your success is our mission. Personalized approach and tailored solutions for every client.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">🚀</div>
+              <h3>Innovation-Driven</h3>
+              <p>Leveraging cutting-edge analytics and market intelligence to stay ahead of trends.</p>
+            </div>
+          </div>
+          <div class="about-cta reveal-3d">
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: CONTACT -->
+      <section class="page" data-index="5" id="contact">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d">Contact</div>
+          <h2 class="section-title reveal-3d">Get In<br><span class="gradient-text">Touch</span></h2>
+          <p class="section-desc reveal-3d">Provide your contact details so clients can reach you</p>
+          <div class="contact-layout reveal-3d" style="display:flex;justify-content:center;">
+            <div class="contact-info-card">
+              <h3>Contact</h3>
+              <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <div>
+                  <strong>Email</strong>
+                  <a href="mailto:#">YOUR EMAIL</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📞</span>
+                <div>
+                  <strong>Phone</strong>
+                  <a href="tel:#">YOUR PHONE</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <div>
+                  <strong>Address</strong>
+                  <span>YOUR ADDRESS</span>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">⏰</span>
+                <div>
+                  <strong>Business Hours</strong>
+                  <span>Mon–Fri: 9:00 AM – 6:00 PM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center;margin-top:32px">
+            <a href="https://unityspirit.github.io/global-plus-en/#page-4" class="btn-outline" style="font-size:16px;padding:14px 40px;display:inline-block;text-decoration:none;">BACK TO MAIN</a>
+          </div>
+        </div>
+        <!-- FOOTER -->
+        <footer class="footer">
+          <div class="footer-inner">
+            <span class="footer-logo">YOUR COMPANY</span>
+            <span class="footer-copy">© 2026 YOUR COMPANY</span>
+          </div>
+        </footer>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
