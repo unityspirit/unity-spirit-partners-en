@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="gp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4A94B"/>
+      <stop offset="100%" stop-color="#b8912f"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#1a1a2e"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="url(#gp)" stroke-width="2"/>
+  <!-- Handshake -->
+  <path d="M45,100 L65,90 L80,95 L95,85 L100,90" fill="none" stroke="url(#gp)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M155,100 L135,90 L120,95 L105,85 L100,90" fill="none" stroke="url(#gp)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Arms -->
+  <path d="M35,115 L45,100" fill="none" stroke="url(#gp)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M165,115 L155,100" fill="none" stroke="url(#gp)" stroke-width="3" stroke-linecap="round"/>
+  <!-- Connection nodes -->
+  <circle cx="100" cy="55" r="12" fill="none" stroke="url(#gp)" stroke-width="2"/>
+  <circle cx="100" cy="55" r="5" fill="url(#gp)"/>
+  <!-- Network lines -->
+  <line x1="100" y1="67" x2="100" y2="85" stroke="url(#gp)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="88" y1="55" x2="70" y2="55" stroke="url(#gp)" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="112" y1="55" x2="130" y2="55" stroke="url(#gp)" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="65" cy="55" r="5" fill="url(#gp)" opacity="0.6"/>
+  <circle cx="135" cy="55" r="5" fill="url(#gp)" opacity="0.6"/>
+  <!-- Growth arrow -->
+  <polyline points="60,145 80,130 100,135 120,120 140,125 155,110" fill="none" stroke="url(#gp)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="155,110 148,108 150,115" fill="url(#gp)"/>
+</svg>
