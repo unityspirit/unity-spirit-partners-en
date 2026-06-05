@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
   --bg: #0a0f1e;
@@ -465,3 +465,9 @@ p, h1, h2, h3, h4, span:not(.gradient-text):not(.logo-accent):not(.stat-number):
 .nav-link { color: rgba(255,255,255,0.9) !important; }
 .collection-overlay p { color: #fff; line-height: 1.4; }
 .collection-overlay h3 { line-height: 1.2; }
+
+
+/* Mobile contact card fix */
+@media(max-width:768px){
+  .contact-info-card { max-width: 100%; width: 100%; box-sizing: border-box; }
+}
