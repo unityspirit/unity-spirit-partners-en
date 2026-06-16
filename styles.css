@@ -7,15 +7,7 @@
   --gold2: #e8c97a;
   --rose: #7c8cf8;
   --cream: #f5ede0;
-  --ts:
-    -1px -1px 0 #000,  1px -1px 0 #000,
-    -1px  1px 0 #000,  1px  1px 0 #000,
-    -2px -2px 0 #000,  2px -2px 0 #000,
-    -2px  2px 0 #000,  2px  2px 0 #000,
-     0   -2px 0 #000,  0    2px 0 #000,
-    -2px  0   0 #000,  2px  0   0 #000,
-    -3px  0   0 rgba(0,0,0,.55), 3px 0 0 rgba(0,0,0,.55),
-     0   -3px 0 rgba(0,0,0,.55), 0  3px 0 rgba(0,0,0,.55);
+  --ts: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000, 0 0 6px rgba(0,0,0,.7);
   --shadow-light: 0 0 3px 3px rgba(255,255,255,.12), 0 0 5px 5px rgba(255,255,255,.05);
   --shadow-dark:  0 0 3px 3px rgba(0,0,0,.4),        0 0 5px 5px rgba(0,0,0,.15);
   --card-bg: rgba(0,0,0,0.50);
