@@ -59,7 +59,6 @@ document.body.appendChild(loaderEl);
 // Site loading bar (Phase 2)
 const siteBarEl = document.createElement('div');
 siteBarEl.id = 'siteLoadingBar';
-siteBarEl.className = 'site-loading-bar';
 siteBarEl.innerHTML = '<div class="site-loading-fill"><div class="site-loading-fill-inner" id="siteLoadingFillInner"></div></div><span class="site-loading-text" id="siteLoadingText">Loading video...</span>';
 document.body.appendChild(siteBarEl);
 
@@ -126,7 +125,7 @@ async function loadFrame(idx) {
           if (loader) { loader.classList.add('fade-out'); setTimeout(() => loader.remove(), 900); }
           if (typeof pages !== 'undefined' && pages[0]) pages[0].classList.add('is-active');
           const slb = document.getElementById('siteLoadingBar');
-          setTimeout(() => { if(slb) slb.classList.add('active'); }, 700);
+          setTimeout(() => { if(slb) slb.style.opacity='1';slb.style.visibility='visible'; }, 700);
         }
       } else {
         const phase2Pct = Math.round(((realPct - PRELOADER_THRESHOLD) / (100 - PRELOADER_THRESHOLD)) * 100);
@@ -162,7 +161,7 @@ loadAllFrames().then(() => {
   const slb = document.getElementById('siteLoadingBar');
   const txt = document.getElementById('siteLoadingText');
   if (txt) txt.textContent = 'Loading complete';
-  setTimeout(() => { if(slb) { slb.classList.remove('active'); slb.classList.add('done'); } }, 800);
+  setTimeout(() => { if(slb) { slb.style.opacity='0';setTimeout(function(){if(slb)slb.remove()},600); } }, 800);
   if (pages[0]) pages[0].classList.add('is-active');
 });
 
@@ -301,3 +300,13 @@ window.addEventListener('scroll', () => {
   document.getElementById('navbar').style.background =
     scrollY > 60 ? 'rgba(10,15,30,0.97)' : 'rgba(10,15,30,0.85)';
 }, { passive: true });
+
+// === SITE LOADING BAR (Phase 2 — deferred) ===
+(function(){
+  if (document.getElementById('siteLoadingBar')) return;
+  var el = document.createElement('div');
+  el.id = 'siteLoadingBar';
+  el.style.cssText = 'position:fixed;bottom:0;left:0;width:100%;height:32px;background:rgba(10,10,10,.88);backdrop-filter:blur(10px);z-index:9998;display:flex;align-items:center;padding:0 20px;gap:12px;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s;border-top:1px solid rgba(255,255,255,.08);';
+  el.innerHTML = '<div style="flex:1;height:3px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;"><div id="slbFill" style="height:100%;width:0;background:linear-gradient(90deg,var(--gold,var(--accent,#c9a84c)),#e8c97a);border-radius:2px;transition:width .25s;"></div></div><span id="siteLoadingText" style="font-size:11px;color:rgba(255,255,255,.5);white-space:nowrap;">Loading video...</span>';
+  document.body.appendChild(el);
+})();
