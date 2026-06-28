@@ -23,6 +23,8 @@ const drawerLinks = document.querySelectorAll('#drawer-links .drawer-link');
 const frames = new Array(TOTAL_FRAMES);
 let loadedCount  = 0;
 let isReady      = false;
+let preloaderDismissed = false;
+const PRELOADER_THRESHOLD = 15;
 let currentFrame = 0;
 let targetFrame  = 0;
 
@@ -53,6 +55,13 @@ loaderEl.innerHTML = `
     <div class="loader-pct" id="loader-pct">0%</div>
   </div>`;
 document.body.appendChild(loaderEl);
+
+// Site loading bar (Phase 2)
+const siteBarEl = document.createElement('div');
+siteBarEl.id = 'siteLoadingBar';
+siteBarEl.className = 'site-loading-bar';
+siteBarEl.innerHTML = '<div class="site-loading-fill"><div class="site-loading-fill-inner" id="siteLoadingFillInner"></div></div><span class="site-loading-text" id="siteLoadingText">Loading video...</span>';
+document.body.appendChild(siteBarEl);
 
 const loaderCSS = document.createElement('style');
 loaderCSS.textContent = `
@@ -124,11 +133,14 @@ async function loadAllFrames() {
 
 loadAllFrames().then(() => {
   isReady = true;
-  const loader = document.getElementById('loader');
-  if (loader) {
-    loader.classList.add('fade-out');
-    setTimeout(() => loader.remove(), 900);
+  if (!preloaderDismissed) {
+    const loader = document.getElementById('loader');
+    if (loader) { loader.classList.add('fade-out'); setTimeout(() => loader.remove(), 900); }
   }
+  const slb = document.getElementById('siteLoadingBar');
+  const txt = document.getElementById('siteLoadingText');
+  if (txt) txt.textContent = 'Loading complete';
+  setTimeout(() => { if(slb) { slb.classList.remove('active'); slb.classList.add('done'); } }, 800);
   if (pages[0]) pages[0].classList.add('is-active');
 });
 
