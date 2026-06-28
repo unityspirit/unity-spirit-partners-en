@@ -108,11 +108,28 @@ async function loadFrame(idx) {
       frames[idx] = img;
       loadedCount++;
       if (loadedCount === 1) { isReady = true; drawFrame(0); }
-      const pct = Math.round((loadedCount / TOTAL_FRAMES) * 100);
-      const bar = document.getElementById('loader-bar');
-      const pctEl = document.getElementById('loader-pct');
-      if (bar) bar.style.width = pct + '%';
-      if (pctEl) pctEl.textContent = pct + '%';
+      const realPct = Math.round((loadedCount / TOTAL_FRAMES) * 100);
+      if (!preloaderDismissed) {
+        const visualPct = Math.min(Math.round((realPct / PRELOADER_THRESHOLD) * 100), 100);
+        const bar = document.getElementById('loader-bar');
+        const pctEl = document.getElementById('loader-pct');
+        if (bar) bar.style.width = visualPct + '%';
+        if (pctEl) pctEl.textContent = visualPct + '%';
+        if (realPct >= PRELOADER_THRESHOLD) {
+          preloaderDismissed = true;
+          const loader = document.getElementById('loader');
+          if (loader) { loader.classList.add('fade-out'); setTimeout(() => loader.remove(), 900); }
+          if (typeof pages !== 'undefined' && pages[0]) pages[0].classList.add('is-active');
+          const slb = document.getElementById('siteLoadingBar');
+          setTimeout(() => { if(slb) slb.classList.add('active'); }, 700);
+        }
+      } else {
+        const phase2Pct = Math.round(((realPct - PRELOADER_THRESHOLD) / (100 - PRELOADER_THRESHOLD)) * 100);
+        const fill = document.getElementById('siteLoadingFillInner');
+        const txt = document.getElementById('siteLoadingText');
+        if (fill) fill.style.width = phase2Pct + '%';
+        if (txt) txt.textContent = 'Loading video ' + realPct + '%';
+      }
       resolve();
     };
     img.onerror = () => { frames[idx] = null; loadedCount++; resolve(); };
