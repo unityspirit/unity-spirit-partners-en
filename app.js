@@ -154,10 +154,8 @@ async function loadAllFrames() {
 
 loadAllFrames().then(() => {
   isReady = true;
-  if (!preloaderDismissed) {
-    const loader = document.getElementById('loader');
-    if (loader) { loader.classList.add('fade-out'); setTimeout(() => loader.remove(), 900); }
-  }
+  const ldr = document.getElementById('loader');
+if (ldr) { ldr.classList.add('fade-out'); setTimeout(() => ldr.remove(), 900); }
   const slb = document.getElementById('siteLoadingBar');
   const txt = document.getElementById('siteLoadingText');
   if (txt) txt.textContent = 'Loading complete';
