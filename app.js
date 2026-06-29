@@ -121,6 +121,8 @@ async function loadFrame(idx) {
         if (pctEl) pctEl.textContent = visualPct + '%';
         if (realPct >= PRELOADER_THRESHOLD) {
           preloaderDismissed = true;
+          isReady = true;
+          drawFrame(0);
           const loader = document.getElementById('loader');
           if (loader) { loader.classList.add('fade-out'); setTimeout(() => loader.remove(), 900); }
           if (typeof pages !== 'undefined' && pages[0]) pages[0].classList.add('is-active');
